@@ -64,6 +64,74 @@ public class ArrayAlgorithms {
         return array;
     }
 
-    
-    
+    public static void bookEnd(int[] nums, int num) {
+        nums[0] = num;
+        nums[nums.length - 1] = num;
+    }
+
+    public static void multiplyBy(int[] numList, int multiplier) {
+        for(int i = 0; i < numList.length; i++) {
+            numList[i] *= multiplier;
+        }
+    }
+
+    public static int[] multiplyByNoModify(int[] numList, int multiplier) {
+        int[] x = new int[numList.length];
+        for(int i = 0; i < numList.length; i++) {
+            int y = numList[i] * multiplier;
+            x[i] = y;
+        }
+        return x;
+    }
+
+    public static void addExclamation(String[] wordList) {
+        for(int i = 0; i < wordList.length; i++) {
+            if (!(wordList[i].substring(wordList[i].length() - 1).equals("!"))) {
+                wordList[i] += "!";
+            }
+        }
+    }
+
+    public static boolean[] isFreezing(int[] tempList) {
+        boolean[] x = new boolean[tempList.length];
+        for (int i = 0; i < tempList.length; i++) {
+            if (tempList[i] <= 32) {
+                x[i] = true;
+            } else x[i] = false;
+        }
+        return x;
+    }
+
+    public static void shiftLeft(int[] numList) {
+        int x = numList[0];
+        for (int i = 1; i < numList.length; i ++) {
+            numList[i - 1] = numList[i];
+        }
+        numList[numList.length - 1] = x;
+    }
+
+    public static void shiftRight(int[] numList) {
+        int x = numList[numList.length - 1];
+        for (int i = numList.length - 1; i > 0; i--) {
+            numList[i] = numList[i - 1];
+        }
+        numList[0] = x;
+    }    
+
+    public static void reverse(int[] numList) {
+        /*  int[] x = new int[numList.length];
+        for (int i = 0; i < x.length; i ++) {
+            x[i] = numList[i];          
+        }
+        for(int i = 0; i < x.length; i ++) {
+            numList[numList.length - 1 - i] = x[i];
+        }
+        */
+
+        for (int i = 0; i < numList.length / 2; i++) {
+            int temp = numList[i];
+            numList[i] = numList[numList.length - 1 - i];
+            numList[numList.length - 1 - i] = temp;
+        }
+    }    
 }
